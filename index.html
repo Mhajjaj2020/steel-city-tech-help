@@ -407,16 +407,20 @@
       <label>Extra Devices</label>
       <input id="extraDevices" type="number" min="0" value="0" onchange="updateEstimate()" />
 
-      <label>
-        <input id="urgent" type="checkbox" onchange="updateEstimate()" />
-        Same-day / urgent request +$50
-      </label>
+         <div class="option-row">
+  <label class="checkbox-box">
+    <input id="urgent" type="checkbox" onchange="updateEstimate()" />
+    <span>Same-day / urgent request +$50</span>
+  </label>
 
-      <label>Travel Zone</label>
-      <select id="travel" onchange="updateEstimate()">
-        <option value="0">Standard area</option>
-        <option value="35">Extended area +$35</option>
-      </select>
+  <div>
+    <label>Travel Zone</label>
+    <select id="travel" onchange="updateEstimate()">
+      <option value="0">Standard area</option>
+      <option value="35">Extended area +$35</option>
+    </select>
+  </div>
+</div>
 
       <input placeholder="Full name" />
       <input placeholder="Phone number" />
