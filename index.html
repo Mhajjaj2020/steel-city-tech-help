@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steel City Tech Help</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .tagline {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #0f172a;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #0f172a;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 25px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.05;
+      margin: 20px 0;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      line-height: 1.7;
+      color: #475569;
+    }
+
+    .badge {
+      display: inline-block;
+      background: white;
+      padding: 10px 14px;
+      border-radius: 999px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+      border: 1px solid #e2e8f0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 5px 15px rgba(15,23,42,0.04);
+    }
+
+    .service-card h3 {
+      margin-top: 10px;
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .icon {
+      font-size: 32px;
+    }
+
+    .price {
+      font-weight: bold;
+      background: #f1f5f9;
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      margin-top: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: #475569;
+      line-height: 1.8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    th {
+      background: #0f172a;
+      color: white;
+      text-align: left;
+      padding: 16px;
+    }
+
+    td {
+      padding: 16px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .schedule {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 30px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    textarea {
+      min-height: 110px;
+    }
+
+    .estimate-box {
+      background: #0f172a;
+      color: white;
+      border-radius: 24px;
+      padding: 30px;
+      position: sticky;
+      top: 110px;
+    }
+
+    .estimate-box p {
+      color: #cbd5e1;
+    }
+
+    .estimate-price {
+      font-size: 52px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .footer {
+      background: #0f172a;
+      color: white;
+      padding: 60px 25px;
+    }
+
+    .footer p {
+      color: #cbd5e1;
+    }
+
+    .area-list span {
+      display: inline-block;
+      background: white;
+      border: 1px solid #e2e8f0;
+      padding: 10px 14px;
+      border-radius: 999px;
+      margin: 6px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .schedule {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      header {
+        padding: 16px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <div class="logo">Steel City Tech Help</div>
+      <div class="tagline">Reliable IT Support for Homes & Small Businesses</div>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="section hero">
+    <div>
+      <div class="badge">✅ Pittsburgh-area on-site tech support</div>
+      <h1>Need help with your computer, printer, Wi-Fi, camera, or meeting setup?</h1>
+      <p>
+        Steel City Tech Help provides professional home and small business IT support for printer setup, laptop maintenance, data transfer, Wi-Fi troubleshooting, smart security cameras, home office setup, and conference technology assistance.
+      </p>
+      <a class="button" href="#schedule">Schedule a Service</a>
+    </div>
+
+    <div class="card">
+      <h2>Popular Services</h2>
+      <p>🖨️ Printer Setup — from $99</p>
+      <p>🛠️ Computer Maintenance — from $99</p>
+      <p>💻 New Computer Setup — from $129</p>
+      <p>📶 Wi-Fi Troubleshooting — from $129</p>
+      <p>📷 Security Camera Setup — from $149</p>
+      <p>📅 Conference Tech Help — from $149</p>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <h2>Services</h2>
+    <p>Choose the service you need. Each service includes a starting fee, expected time, and what is included.</p>
+
+    <div class="grid">
+      <div class="service-card">
+        <div class="icon">🖨️</div>
+        <h3>Printer Setup</h3>
+        <p>Connect printer to Wi-Fi, install drivers, add up to 2 devices, and test print/scan.</p>
+        <div class="price">From $99</div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🛠️</div>
+        <h3>Laptop & Computer Maintenance</h3>
+        <p>Improve slow computers, update Windows/drivers, clean startup apps, and run security checks.</p>
+        <div class="price">From $99</div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">💻</div>
+        <h3>New Computer Setup</h3>
+        <p>Set up a new laptop or desktop, user account, email, browser, updates, and security settings.</p>
+        <div class="price">From $129</div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🔐</div>
+        <h3>Data Transfer</h3>
+        <p>Move documents, photos, desktop files, and important folders from an old computer to a new one.</p>
+        <div class="price">From $149</div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📶</div>
+        <h3>Wi-Fi Troubleshooting</h3>
+        <p>Fix weak Wi-Fi, router/modem problems, device connection issues, and home network problems.</p>
+        <div class="price">From $129</div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📷</div>
+        <h3>Smart Security Camera Setup</h3>
+        <p>Set up wireless Ring, Blink, Nest, or similar cameras, mobile apps, and motion alerts.</p>
+        <div class="price">From $149</div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🖥️</div>
+        <h3>Home Office Setup</h3>
+        <p>Set up docking stations, dual monitors, printer, webcam, Teams/Zoom, and work-from-home equipment.</p>
+        <div class="price">From $249</div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📅</div>
+        <h3>Conference & Meeting Tech Assistance</h3>
+        <p>On-site support for laptops, projectors, displays, microphones, speakers, Zoom, Teams, and presentations.</p>
+        <div class="price">From $149</div>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🏢</div>
+        <h3>Small Business IT Support</h3>
+        <p>IT support for small offices, including computers, printers, Microsoft 365, Wi-Fi, and basic security.</p>
+        <div class="price">From $150</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <h2>Starting Prices</h2>
+    <table>
+      <tr>
+        <th>Service</th>
+        <th>Starting Fee</th>
+        <th>Estimated Time</th>
+      </tr>
+      <tr><td>Printer Setup</td><td>$99</td><td>60–90 minutes</td></tr>
+      <tr><td>Laptop & Computer Maintenance</td><td>$99</td><td>60–120 minutes</td></tr>
+      <tr><td>New Computer Setup</td><td>$129</td><td>60–120 minutes</td></tr>
+      <tr><td>Data Transfer</td><td>$149</td><td>90–180 minutes</td></tr>
+      <tr><td>Wi-Fi Troubleshooting</td><td>$129</td><td>60–120 minutes</td></tr>
+      <tr><td>Smart Security Camera Setup</td><td>$149</td><td>90–180 minutes</td></tr>
+      <tr><td>Home Office Setup</td><td>$249</td><td>2–3 hours</td></tr>
+      <tr><td>Conference & Meeting Tech Assistance</td><td>$149</td><td>90 minutes+</td></tr>
+      <tr><td>Small Business IT Support</td><td>$150+</td><td>Hourly / project-based</td></tr>
+    </table>
+    <p>Travel fee may apply outside the standard service area. Parts, cables, adapters, printers, cameras, and other equipment are not included unless stated in writing.</p>
+  </section>
+
+  <section id="schedule" class="section schedule">
+    <div class="card">
+      <h2>Schedule a Service</h2>
+      <p>Select a service, preferred date/time, and options. The estimate updates before you submit the request.</p>
+
+      <label>Service Needed</label>
+      <select id="service" onchange="updateEstimate()">
+        <option value="99">Printer Setup — starts at $99</option>
+        <option value="99">Laptop & Computer Maintenance — starts at $99</option>
+        <option value="129">New Computer Setup — starts at $129</option>
+        <option value="149">Data Transfer — starts at $149</option>
+        <option value="129">Wi-Fi Troubleshooting — starts at $129</option>
+        <option value="149">Smart Security Camera Setup — starts at $149</option>
+        <option value="249">Home Office Setup — starts at $249</option>
+        <option value="149">Conference & Meeting Tech Assistance — starts at $149</option>
+        <option value="150">Small Business IT Support — starts at $150</option>
+      </select>
+
+      <label>Preferred Date</label>
+      <input type="date" />
+
+      <label>Preferred Time</label>
+      <select>
+        <option>Morning: 8:00 AM – 11:00 AM</option>
+        <option>Midday: 11:00 AM – 2:00 PM</option>
+        <option>Afternoon: 2:00 PM – 5:00 PM</option>
+        <option>Evening: 5:00 PM – 8:00 PM</option>
+      </select>
+
+      <label>Extra Devices</label>
+      <input id="extraDevices" type="number" min="0" value="0" onchange="updateEstimate()" />
+
+      <label>
+        <input id="urgent" type="checkbox" onchange="updateEstimate()" />
+        Same-day / urgent request +$50
+      </label>
+
+      <label>Travel Zone</label>
+      <select id="travel" onchange="updateEstimate()">
+        <option value="0">Standard area</option>
+        <option value="35">Extended area +$35</option>
+      </select>
+
+      <input placeholder="Full name" />
+      <input placeholder="Phone number" />
+      <input placeholder="Email address" />
+      <input placeholder="City / ZIP code" />
+      <textarea placeholder="Briefly describe the issue or equipment you need help with"></textarea>
+
+      <button class="button" onclick="alert('Request received. In the next version, this will send the request by email or connect to scheduling.')">
+        Submit Service Request
+      </button>
+    </div>
+
+    <div class="estimate-box">
+      <p>Estimated Starting Cost</p>
+      <div id="estimate" class="estimate-price">$99</div>
+      <p>
+        This is an estimate based on your selected service and options. Final price is confirmed before work begins.
+      </p>
+      <p>
+        No payment is collected before the visit. Payment is collected after the service is completed.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid">
+      <div class="card">
+        <h2>About Steel City Tech Help</h2>
+        <p>
+          Steel City Tech Help provides friendly, professional, and reliable technology support for homes and small businesses. We help with computers, printers, Wi-Fi, data transfer, smart security cameras, home office setups, and meeting technology.
+        </p>
+        <p>
+          Your privacy matters. We do not access personal files, photos, emails, or passwords without permission. We explain the work before starting and confirm everything works before leaving.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Service Area</h2>
+        <div class="area-list">
+          <span>Pittsburgh</span>
+          <span>Monroeville</span>
+          <span>Squirrel Hill</span>
+          <span>Oakland</span>
+          <span>Shadyside</span>
+          <span>Penn Hills</span>
+          <span>Plum</span>
+          <span>Murrysville</span>
+          <span>Wilkins Township</span>
+          <span>Nearby areas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="footer">
+    <div class="section" style="padding-top:0; padding-bottom:0;">
+      <h2>Ready to get help?</h2>
+      <p>Request a service visit, see the estimated fee in advance, and pay after the service is completed.</p>
+      <p>📞 Phone: Add your business phone number</p>
+      <p>✉️ Email: support@steelcitytechhelp.com</p>
+      <p>📍 Pittsburgh, PA and surrounding areas</p>
+    </div>
+  </section>
+
+  <script>
+    function updateEstimate() {
+      const service = Number(document.getElementById("service").value);
+      const extraDevices = Number(document.getElementById("extraDevices").value || 0);
+      const urgent = document.getElementById("urgent").checked ? 50 : 0;
+      const travel = Number(document.getElementById("travel").value);
+
+      const total = service + (extraDevices * 20) + urgent + travel;
+      document.getElementById("estimate").innerText = "$" + total;
+    }
+  </script>
+</body>
+</html>
